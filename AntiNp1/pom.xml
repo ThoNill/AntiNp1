@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.thonill</groupId>
+	<artifactId>AntiNp1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Anti N+1</name>
+	<description>Manchmal werden bei koplexen Reports oder Abläufen zu
+viele Abfragen an die Datenbank gestellt. Ist die Datenmenge sehr groß, wirkt sich
+das deutlich auf die Performance aus.
+
+Diese Library soll N+1 freie Entwicklung unterstützen.</description>
+	<dependencies>
+		<dependency>
+			<groupId>commons-dbutils</groupId>
+			<artifactId>commons-dbutils</artifactId>
+			<version>1.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.10.19</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
