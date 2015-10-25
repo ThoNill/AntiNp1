@@ -1,6 +1,6 @@
 
 Eine kleine Library zum vermeiden von 
-zuvielen Abfragen auf ein SQL Datenbank.
+zuvielen Abfragen auf eine SQL Datenbank.
 
 Eine Hauptabfrage fiefert Daten und eine ID.
 Wenige weitere Abfragen werden durch diese ID 
