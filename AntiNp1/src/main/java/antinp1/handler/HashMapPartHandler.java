@@ -13,11 +13,11 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import antinp1.PartHandler;
 
 
-public class HasMapPartHandler<K, ID> extends BeanPartHandlerBasis<ID,K> 
+public class HashMapPartHandler<K, ID> extends BeanPartHandlerBasis<ID,K> 
        implements PartHandler<ID,HashMap<String,K>> { 
 	private ResultSetHandler<String> hashKeyHandler;
 
-	public HasMapPartHandler(ResultSetHandler<String> hashKeyHandler,
+	public HashMapPartHandler(ResultSetHandler<String> hashKeyHandler,
 			ResultSetHandler<ID> indexHandler,
 			ResultSetHandler rowProcessor) {
 		super(indexHandler,rowProcessor);

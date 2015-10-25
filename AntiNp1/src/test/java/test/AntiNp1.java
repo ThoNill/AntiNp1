@@ -4,12 +4,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.sql.rowset.RowSetMetaDataImpl;
 
 import test.MockResultSet;
 
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.After;
 import org.junit.Test;
 
@@ -18,6 +20,7 @@ import antinp1.PartHandler;
 import antinp1.PartIterator;
 import antinp1.handler.Column;
 import antinp1.handler.ColumnHandler;
+import antinp1.handler.HashMapPartHandler;
 import antinp1.handler.ListPartHandler;
 
 public class AntiNp1 {
@@ -172,6 +175,40 @@ public class AntiNp1 {
 		expected.compare(iter);
 
 	}
+	
+	@Test
+	public void test6() throws SQLException {
+		RowSetMetaDataImpl metaData = createMetaData();
+		ResultSet resultSet = MockResultSet.create(metaData, new Object[][] {
+				{ 1, "a11", "a1" }, 
+				{ 1, "a12", "a2" }, 
+				{ 1, "a13", "a3" }, 
+				{ 4, "a41", "a4" } });
+
+		TestQuery query = new TestQuery(resultSet);
+
+		IDinFirstColumn id = new IDinFirstColumn();
+	
+		
+		Column<String> secondColumn  = new Column<String>(2);
+		
+		HashMapPartHandler<String,Integer> hashHandler = new HashMapPartHandler<String, Integer>(secondColumn,id,secondColumn );
+		
+		
+		PartIterator<Integer, HashMap<String,String>> iter = new PartIterator<Integer, HashMap<String,String>>(
+				id, hashHandler);
+
+		iter.setQuery(query);
+
+		TestExpected<HashMap<String,String>> expected = new TestExpected<HashMap<String,String>>();
+		expected.addResult(1, getHash("a11","a12","a13"));
+		expected.addResult(4, getHash("a41"));
+		expected.addEmptyResult(5);
+		expected.addEmptyResult(6);
+		expected.addEmptyResult(7);
+		expected.compare(iter);
+
+	}	
 
 	private List<String> getList(String... texte) {
 		List<String> l = new ArrayList();
@@ -180,4 +217,14 @@ public class AntiNp1 {
 		}
 		return l;
 	}
+	
+	private HashMap<String,String> getHash(String... texte) {
+		HashMap<String,String> l = new HashMap<String, String>();
+		for ( String text : texte) {
+			l.put(text,text);
+		}
+		return l;
+	}
+	
+	
 }
