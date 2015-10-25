@@ -134,7 +134,9 @@ public class MockResultSet implements InvocationHandler {
 			return this.next();
 
 		} else if (methodName.equals("previous")) {
-
+		} else if (methodName.equals("isClosed")) {
+			return !iter.hasNext();
+		
 		} else if (methodName.equals("close")) {
 
 		} else if (methodName.equals("getObject")

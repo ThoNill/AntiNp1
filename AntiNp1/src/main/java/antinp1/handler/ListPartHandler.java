@@ -15,15 +15,16 @@ public class ListPartHandler<K, ID> extends BeanPartHandlerBasis<ID,K>
        implements PartHandler<ID,List<K>> { 
 
 	public ListPartHandler(ResultSetHandler<ID> indexHandler,
-			BeanHandler<K> beanHanlder) {
+			ResultSetHandler<K> beanHanlder) {
 		super(indexHandler, beanHanlder);
 	}
 	
 	public List<K> handlePart(ResultSet resultSet, ID id) throws SQLException {
 		List<K> resultList = new ArrayList<K>();
-		while (id.equals(calculateId(resultSet))) {
+		boolean hasNext = true;
+		while (hasNext && id.equals(calculateId(resultSet))) {
 			resultList.add(handle(resultSet));
-			resultSet.next();
+			hasNext = resultSet.next();
 		} 
 		return resultList;
 	}
