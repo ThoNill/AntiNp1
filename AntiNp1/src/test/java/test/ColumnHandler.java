@@ -1,4 +1,4 @@
-package antinp1.handler;
+package test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -15,13 +15,12 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.After;
 import org.junit.Test;
 
-import antinp1.IDinFirstColumn;
 import antinp1.PartHandler;
 import antinp1.PartIterator;
-import antinp1.handler.Column;
-import antinp1.handler.ColumnHandler;
 import antinp1.handler.HashMapPartHandler;
 import antinp1.handler.ListPartHandler;
+import antinp1.rowprocessors.Column;
+import antinp1.rowprocessors.IDinFirstColumn;
 
 public class AntiNp1 {
 

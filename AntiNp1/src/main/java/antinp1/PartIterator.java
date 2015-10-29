@@ -2,10 +2,11 @@ package antinp1;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import org.apache.commons.dbutils.ResultSetHandler;
+
+import antinp1.rowprocessors.TypedRowProcessor;
 
 public class PartIterator<ID extends Comparable<ID>, K> {
-	private ResultSetHandler<ID> indexHandler;
+	private TypedRowProcessor<ID> indexHandler;
 	private PartHandler<ID, K> partHandler;
 
 	private ID lastID;
@@ -14,7 +15,7 @@ public class PartIterator<ID extends Comparable<ID>, K> {
 	private Query query;
 	private boolean executed = false;
 
-	public PartIterator(ResultSetHandler<ID> indexHandler,
+	public PartIterator(TypedRowProcessor<ID> indexHandler,
 			PartHandler<ID, K> convertExecute) {
 		super();
 		this.indexHandler = indexHandler;

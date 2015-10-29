@@ -1,13 +1,9 @@
-package antinp1.handler;
+package antinp1.rowprocessors;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.apache.commons.dbutils.ResultSetHandler;
-
-import antinp1.PartHandler;
-
-public class Column<K> implements ResultSetHandler<K> {
+public class Column<K> implements TypedRowProcessor<K> {
 
 	private int column;
 

@@ -3,19 +3,14 @@ package antinp1.handler;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.apache.commons.dbutils.ResultSetHandler;
-import org.apache.commons.dbutils.RowProcessor;
-import org.apache.commons.dbutils.handlers.BeanHandler;
-
 import antinp1.PartHandler;
+import antinp1.rowprocessors.TypedRowProcessor;
 
-public class BeanPartHandler<ID, K> extends BeanPartHandlerBasis<ID, K> implements PartHandler<ID, K> {
+public class BeanPartHandler<ID, K> extends BeanPartHandlerBasis<ID, K>
+		implements PartHandler<ID, K> {
 
-	
-	
-
-	public BeanPartHandler(ResultSetHandler<ID> indexHandler,
-			ResultSetHandler rowProcessor) {
+	public BeanPartHandler(TypedRowProcessor<ID> indexHandler,
+			TypedRowProcessor rowProcessor) {
 		super(indexHandler, rowProcessor);
 	}
 
