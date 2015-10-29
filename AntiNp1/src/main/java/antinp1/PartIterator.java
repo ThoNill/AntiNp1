@@ -64,7 +64,7 @@ public class PartIterator<ID extends Comparable<ID>, K> {
 
 	private void createObject() throws SQLException {
 		if (lastID != null && resultSet != null) {
-			lastObject = partHandler.handlePart(resultSet, lastID);
+			lastObject = partHandler.handlePart(resultSet, lastID,indexHandler);
 		} else {
 			lastObject = null;
 		}

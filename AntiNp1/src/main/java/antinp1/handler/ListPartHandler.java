@@ -8,18 +8,17 @@ import java.util.ArrayList;
 import antinp1.PartHandler;
 import antinp1.rowprocessors.TypedRowProcessor;
 
-public class ListPartHandler<K, ID> extends BeanPartHandlerBasis<ID, K>
+public class ListPartHandler<K, ID> extends BeanPartHandlerBasis<K>
 		implements PartHandler<ID, List<K>> {
 
-	public ListPartHandler(TypedRowProcessor<ID> indexHandler,
-			TypedRowProcessor<K> beanHanlder) {
-		super(indexHandler, beanHanlder);
+	public ListPartHandler(TypedRowProcessor<K> beanHanlder) {
+		super(beanHanlder);
 	}
 
-	public List<K> handlePart(ResultSet resultSet, ID id) throws SQLException {
+	public List<K> handlePart(ResultSet resultSet, ID id, TypedRowProcessor<ID> indexHandler) throws SQLException {
 		List<K> resultList = new ArrayList<K>();
 		boolean hasNext = true;
-		while (hasNext && id.equals(calculateId(resultSet))) {
+		while (hasNext && id.equals(indexHandler.handle(resultSet))) {
 			resultList.add(handle(resultSet));
 			hasNext = resultSet.next();
 		}

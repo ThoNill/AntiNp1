@@ -157,7 +157,7 @@ public class AntiNp1 {
 		
 		Column<String> secondColumn  = new Column<String>(2);
 		
-		ListPartHandler<String,Integer> listHandler = new ListPartHandler<String, Integer>(id,secondColumn );
+		ListPartHandler<String,Integer> listHandler = new ListPartHandler<String, Integer>(secondColumn );
 		
 		
 		PartIterator<Integer, List<String>> iter = new PartIterator<Integer, List<String>>(
@@ -191,7 +191,7 @@ public class AntiNp1 {
 		
 		Column<String> secondColumn  = new Column<String>(2);
 		
-		HashMapPartHandler<String,Integer> hashHandler = new HashMapPartHandler<String, Integer>(secondColumn,id,secondColumn );
+		HashMapPartHandler<String,Integer> hashHandler = new HashMapPartHandler<String, Integer>(secondColumn,secondColumn );
 		
 		
 		PartIterator<Integer, HashMap<String,String>> iter = new PartIterator<Integer, HashMap<String,String>>(
