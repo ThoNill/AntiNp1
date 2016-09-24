@@ -6,12 +6,12 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.rowset.RowSetMetaDataImpl;
 
 import test.MockResultSet;
 
-import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.After;
 import org.junit.Test;
 
@@ -25,7 +25,7 @@ import antinp1.rowprocessors.IDinFirstColumn;
 public class AntiNp1 {
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() {
 	}
 
 	protected RowSetMetaDataImpl createMetaData() throws SQLException {
@@ -194,12 +194,12 @@ public class AntiNp1 {
 		HashMapPartHandler<String,Integer> hashHandler = new HashMapPartHandler<String, Integer>(secondColumn,secondColumn );
 		
 		
-		PartIterator<Integer, HashMap<String,String>> iter = new PartIterator<Integer, HashMap<String,String>>(
+		PartIterator<Integer, Map<String,String>> iter = new PartIterator<Integer, Map<String,String>>(
 				id, hashHandler);
 
 		iter.setQuery(query);
 
-		TestExpected<HashMap<String,String>> expected = new TestExpected<HashMap<String,String>>();
+		TestExpected<Map<String,String>> expected = new TestExpected<Map<String,String>>();
 		expected.addResult(1, getHash("a11","a12","a13"));
 		expected.addResult(4, getHash("a41"));
 		expected.addEmptyResult(5);
@@ -217,8 +217,8 @@ public class AntiNp1 {
 		return l;
 	}
 	
-	private HashMap<String,String> getHash(String... texte) {
-		HashMap<String,String> l = new HashMap<String, String>();
+	private Map<String,String> getHash(String... texte) {
+		Map<String,String> l = new HashMap<String, String>();
 		for ( String text : texte) {
 			l.put(text,text);
 		}

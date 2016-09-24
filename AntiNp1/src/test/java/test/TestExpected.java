@@ -1,12 +1,12 @@
 package test;
 
 import java.sql.SQLException;
-import java.util.Vector;
-
+import java.util.ArrayList;
 import org.junit.Assert;
+
 import antinp1.PartIterator;
 
-public class TestExpected<K> extends Vector<TestResult<K>> {
+public class TestExpected<K> extends ArrayList<TestResult<K>> {
 
 	static final String NULL = "null";
 

@@ -185,7 +185,7 @@ public class MockResultSet implements InvocationHandler {
 	protected Object getObject(int columnIndex) throws SQLException {
 		Object obj = this.currentRow[columnIndex - 1];
 		if (obj == null) {
-			this.wasNull = (obj == null) ? Boolean.TRUE : Boolean.FALSE;
+			this.wasNull = Boolean.TRUE;
 		}
 
 		return obj;

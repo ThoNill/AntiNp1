@@ -16,6 +16,7 @@ import java.sql.SQLException;
  *
  * @param <T>
  */
+@FunctionalInterface
 public interface TypedRowProcessor<T> {
 	T handle(ResultSet rs) throws SQLException;
 

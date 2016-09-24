@@ -60,7 +60,7 @@ public class PartIterator<ID extends Comparable<ID>, K> {
 			resultSet = query.execute();
 			resultSet.next();
 		}
-	};
+	}
 
 	private void createObject() throws SQLException {
 		if (lastID != null && resultSet != null) {

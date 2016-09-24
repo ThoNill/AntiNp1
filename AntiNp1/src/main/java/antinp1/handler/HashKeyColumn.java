@@ -2,6 +2,7 @@ package antinp1.handler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import org.apache.commons.dbutils.ResultSetHandler;
 
 public class HashKeyColumn implements ResultSetHandler<String> {
