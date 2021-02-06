@@ -22,7 +22,7 @@ import antinp1.handler.ListPartHandler;
 import antinp1.rowprocessors.Column;
 import antinp1.rowprocessors.IDinFirstColumn;
 
-public class AntiNp1 {
+public class AntiNp1Test {
 
 	@After
 	public void tearDown() {
